@@ -1,6 +1,9 @@
-<h1>This is the blog</h1>
+<h1>WOD Blog:</h1>
+<hr \>
+<div class="container">
 <% blogs.forEach(blogPost => { console.log(blogPost.createdAt) %>
-    <div class="well">
+<div class="container">
+    <div class="jumbotron">
       <h2>
         <a href="/blog/<%= blogPost.id %>"><%= blogPost.title %></a>
       </h2>
@@ -8,4 +11,6 @@
         <a href="/blog/<%= blogPost.id %>"><%- blogPost.createdAt  %></a>
       </p>
     </div>
-  <% }) %>
+</div>
+<% }) %>
+</div>

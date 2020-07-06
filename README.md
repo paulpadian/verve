@@ -9,10 +9,20 @@ Before:
 After:
 
 Technologies Utilized:
-Javascript 
+
+Javascript
+
+jquery
+
 CSS
+
 HTML
+
 Express 
+
 EJS
+
 PostrgresSQL
+
+
 API's: Google Maps, Cloudify, MBO
