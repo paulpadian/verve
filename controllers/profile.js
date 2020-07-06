@@ -5,7 +5,7 @@ const db = require('../models')
 //import middleware
 const flash = require('connect-flash')
 const passport = require('../config/ppConfig')
-const isLoggedIn = require('../middleware/isAdmin');
+const isLoggedIn = require('../middleware/isLoggedIn');
 
 
 router.get('', isLoggedIn, (req, res) => {

@@ -9,6 +9,7 @@ const passport = require('../config/ppConfig')
 
 
 router.get('',  (req, res) => {
+    console.log(req.user.admin + "🙁😁😁")
     console.log('hit about page')
     res.render('about')
 })

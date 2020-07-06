@@ -37,17 +37,15 @@ module.exports = function(sequelize, DataTypes) {
         admin: {
             type: DataTypes.STRING,
             validate: {
-                args: [0, 2],
-                msg: 'admin yes or no'
+                len: {
+                    args: [0,2],
+                    msg: 'is admin or not'
+                }
             }
+           
         },
         bio: {
-            type: DataTypes.STRING,
-            validate: {
-                args: [1, 900],
-                msg: 'invalid bio'
-            }
-            
+            type: DataTypes.TEXT
         }
     }, {
         hooks: {
