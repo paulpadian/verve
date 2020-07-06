@@ -1,1 +1,6 @@
 <h2>Hi <%= currentUser.name %>, welcome to the app!</h2>
+<% if(currentUser.admin === "1") { %>
+    <h5> you're signed into an <strong>administrator account</strong>, blog posting and user maintenance available</h5>
+<% } %>
+<hr \>
+<h2> Favorite Blogs: </h2>

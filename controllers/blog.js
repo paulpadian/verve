@@ -16,6 +16,7 @@ router.get('/', isLoggedIn,  (req, res) => {
       })
 })
 
+
 router.get('/new', isAdmin, (req, res) => {
     res.render('blog/new')
 })
@@ -34,6 +35,23 @@ router.post('/new', isAdmin, (req, res) => {
 
 router.get('/edit', isAdmin, (req, res) => {
     res.render('blog/edit')
+})
+
+router.get('/:id', isLoggedIn, (req, res) => {
+    db.blog.findOne({
+        where: { id : req.params.id },
+      })
+      .then(blog => {
+        if (!blog) throw Error()
+        
+        res.render('blog/show', { 
+          blog: blog
+        })
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+      
 })
 
 module.exports = router
