@@ -8,13 +8,13 @@ Before:
 After:
 
 ## Technologies Utilized:
- Javascript
- jquery
- CSS
- HTML
- Express 
- EJS
- PostrgresSQL
+- Javascript
+- jquery
+- CSS
+- HTML
+- Express 
+- EJS
+- PostrgresSQL
 
 
 API's: Google Maps, Cloudify, MBO
