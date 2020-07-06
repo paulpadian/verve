@@ -1,0 +1,1 @@
+sequelize model:create --name blog --attributes title:string,content:text,authorId:integer
