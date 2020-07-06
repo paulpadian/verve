@@ -1,1 +1,12 @@
 <h1>This is the blog</h1>
+<% blogs.forEach(blogPost => { console.log(blogPost.createdAt) %>
+    
+    <div class="well">
+      <h2>
+        <a href="/blogs/<%= blogPost.id %>"><%= blogPost.title %></a>
+      </h2>
+      <p>
+        <a href="blogs/<%= blogPost.id %>"><%- blogPost.createdAt  %></a>
+      </p>
+    </div>
+  <% }) %>
