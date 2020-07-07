@@ -1,4 +1,16 @@
-.nav-item{
+#navbarColor02{
     padding-top:15px;
     padding-bottom: 15px;
+}
+
+#cardFlex {
+    padding: 5px;
+    margin: 5px;
+}
+
+#containerFlex{
+    padding: 5px;
+    margin: 0px auto;
+    display: flex;
+    flex-flow: row wrap;
 }

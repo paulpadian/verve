@@ -9,8 +9,10 @@ const isAdmin = require('../middleware/isAdmin');
 
 router.get('/', isLoggedIn,  (req, res) => {
     db.blog.findAll({
+      
       }).then((blogs) => {
-        res.render('blog/blog', { blogs: blogs })
+        let reverse = blogs.reverse()
+        res.render('blog/blog', { blogs : reverse })
       }).catch((error) => {
         console.log(error)
       })
