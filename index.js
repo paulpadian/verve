@@ -61,6 +61,7 @@ app.use('/about' , require('./controllers/about'))
 app.use('/auth' , require('./controllers/auth'))
 app.use('/profile', require('./controllers/profile'))
 app.use('/blog', require('./controllers/blog'))
+app.use('/contact', require('./controllers/contact'))
 
 app.listen(process.env.PORT , () => {
     console.log(`listening on ${process.env.PORT}`)
