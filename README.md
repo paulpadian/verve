@@ -11,6 +11,8 @@ After:
 - Javascript
 - jquery
 - CSS
+- Bootstrap
+- Component library: Bootswatch Yeti
 - HTML
 - Express 
 - EJS
