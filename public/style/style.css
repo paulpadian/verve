@@ -40,7 +40,12 @@
 }
 
 .aboutContainer{
-    width: 55vw;
+    width: 53vw;
     margin: 0px auto;
     padding: 2vw;
+}
+
+#faveList {
+    width: 50vw;
+    padding: .5vw;
 }

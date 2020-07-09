@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     authorId: DataTypes.INTEGER
   }, {});
   blog.associate = function(models) {
-    
+    models.blog.belongsToMany(models.favorite, {through: 'blogsFavorites'})
   };
   return blog;
 };

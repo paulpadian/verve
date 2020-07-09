@@ -65,6 +65,7 @@ module.exports = function(sequelize, DataTypes) {
     })
     user.associate = function(models) {
         //any associations can go here
+        models.user.belongsToMany(models.favorite, {through: 'usersFavorites'})
     }
     //valid definition to validate at login
     user.prototype.validPassword = function(passwordTyped) {

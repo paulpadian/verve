@@ -5,4 +5,11 @@
 </p>
 
 <p style="white-space: pre-wrap;"><%- blog.content %></p>
-<hr />
+<hr \>
+<form method="POST" action="/blog/:id">
+  <input hidden type="text" name="id" value="<%= blog.id %>">
+  <input hidden type="text" name="blogTitle" value="<%= blog.title %>">
+  <input hidden type="text" name="blogDate" value="<%= blog.createdAt %>">
+  <button class="btn btn-primary" type="submit">Add to Favorite Blogs</button>
+</form>
+<hr \>

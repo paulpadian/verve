@@ -1,1 +1,3 @@
 sequelize model:create --name blog --attributes title:string,content:text,authorId:integer
+
+sequelize model:create --name favorite --attributes blogId:integer

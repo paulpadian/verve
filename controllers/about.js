@@ -10,6 +10,7 @@ const passport = require('../config/ppConfig')
 
 router.get('',  (req, res) => {
     console.log('hit about page')
+    db.favorite.findAll()
     res.render('about')
 })
 
