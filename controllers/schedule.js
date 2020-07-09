@@ -1,15 +1,13 @@
 const express = require('express')
 const router = express.Router();
 const db = require('../models')
-//import middleware
 const flash = require('connect-flash')
 const passport = require('../config/ppConfig')
+const isLoggedIn = require('../middleware/isLoggedIn');
 
-router.get('',  (req, res) => {
-    console.log('hit contact page')
-    res.render('contact', {mapkey: process.env.API_KEY})
+router.get('', isLoggedIn, (req, res) => {
+    res.render('schedule')
 })
-
 
 
 module.exports = router
