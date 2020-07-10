@@ -66,6 +66,18 @@ router.get('/edit', isAdmin, (req, res) => {
     
 })
 
+router.post('/delete/:id', isAdmin, (req,res) => {
+  console.log(req.params.id)
+  db.blog.destroy({
+    where: {
+      id: req.params.id
+    }
+  }).then(() => {
+    console.log("deleted entry")
+    res.redirect('/blog/edit')
+  })
+})
+
 router.get('/:id', isLoggedIn, (req, res) => {
     db.blog.findOne({
         where: { id : req.params.id },

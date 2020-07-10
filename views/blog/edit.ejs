@@ -1,17 +1,18 @@
-<h1>Edit/Delete Blogs:</h1> 
+<h1>Edit/Delete Blogs:</h1>
 <% blogs.forEach(blog => { %>
-  
-    <div class="list-group" >
-        <a  class="list-group-item list-group-item-action flex-column align-items-start">
-          <div class="d-flex w-100 justify-content-between">
+
+<div class="list-group">
+    <a class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
             <h4 class="mb-1"><%- blog.dataValues.title %></h4>
-            <button class="mb-1" href="/">Delete</h5>
-          </div>
-         
-          <p class="mb-1"> User:<%- blog.dataValues.authorId %></p>
+            <form method="POST" action="/blog/delete/<%-blog.dataValues.id%>">
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+        <p class="mb-1"> User:<%- blog.dataValues.authorId %></p>
         <% if(blog.dataValues.content){ %>
-            <p class="mb-1"><%= blog.dataValues.content.slice(0,15) %></p>
+        <p class="mb-1"><%= blog.dataValues.content.slice(0,15) %></p>
         <% } %>
-        </a>
-    </div>
+    </a>
+</div>
 <% }) %>
