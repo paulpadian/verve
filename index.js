@@ -14,8 +14,9 @@ const passport = require('./config/ppConfig');
 const db = require('./models');
 const isLoggedIn = require('./middleware/isLoggedIn');
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
-
+const sequelize = require('sequelize')
 const app = Express();
+app.use(sequelize)
 app.use(Express.urlencoded( { extended: false}));
 app.use(Express.static(__dirname + "/public"));
 app.set('view engine', 'ejs')

@@ -1,0 +1,21 @@
+<h1>Edit Individual Blog:</h1>
+<hr />
+<script>
+    function ConfirmEdit() {
+        var x = confirm("Are you sure you want to edit?");
+        if (x)
+            return true;
+        else
+            return false;
+    }
+</script>
+<form class="form-group" method="POST" action="/blog/edit/<%-blog.dataValues.id%>">
+    <h4>Edit Title:</h4>
+    <input type="text" name="blogTitle" value="<%= blog.dataValues.title %>">
+    <br>
+    <br>
+    <h4>Edit Content:</h4>
+    <textarea class="form-control" id="exampleTextarea" rows="3" name="content"><%= blog.dataValues.content %></textarea>
+    <br>
+    <button class="btn btn-primary" type="submit"  Onclick="return ConfirmEdit();" >Submit edit</button>
+</form>

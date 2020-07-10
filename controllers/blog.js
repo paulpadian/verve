@@ -7,12 +7,13 @@ const passport = require('../config/ppConfig')
 const isLoggedIn = require('../middleware/isLoggedIn');
 const isAdmin = require('../middleware/isAdmin');
 
+
 router.get('/', isLoggedIn,  (req, res) => {
     db.blog.findAll({
-      
+      order: ['id']
       }).then((blogs) => {
-        let reverse = blogs.reverse()
-        res.render('blog/blog', { blogs : reverse })
+        blogs = blogs.reverse()
+        res.render('blog/blog', { blogs })
       }).catch((error) => {
         console.log(error)
       })
@@ -97,5 +98,31 @@ router.get('/:id', isLoggedIn, (req, res) => {
       })
       
 })
+
+router.get('/edit/:id', isAdmin, (req, res) => {
+  db.blog.findOne({
+    where: {id :req.params.id },
+  })
+  .then(blog => {
+    res.render('blog/editOne', {blog})
+  })
+})
+
+router.post('/edit/:id', isAdmin, (req, res) => {
+  console.log(req.body.content)
+  console.log(req.body.blogTitle)
+  db.blog.update({
+    content: req.body.content,
+    title: req.body.blogTitle
+  }, {
+    where: {
+      id: req.params.id
+    }
+  }).then((user) => {
+    res.redirect(`/blog/edit/${req.params.id}`)
+  });
+})
+
+
 
 module.exports = router
