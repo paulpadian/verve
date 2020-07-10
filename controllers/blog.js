@@ -56,7 +56,14 @@ router.post('/new', isAdmin, (req, res) => {
 })
 
 router.get('/edit', isAdmin, (req, res) => {
-    res.render('blog/edit')
+  db.blog.findAll({
+  }).then(blogs => {
+    blogs = blogs.reverse()
+    res.render('blog/edit', {blogs})
+  }).catch(err => {
+    console.log(err, "ERROR!")
+  })
+    
 })
 
 router.get('/:id', isLoggedIn, (req, res) => {
