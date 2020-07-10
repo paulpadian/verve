@@ -18,24 +18,7 @@ router.get('/', isLoggedIn,  (req, res) => {
       })
 })
 
-router.post('/:id', (req, res) => {
-  console.log('hit post route 🎯')
-  console.log(req.body.id)
-  console.log(req.user.dataValues.id)
-  db.favorite.findOrCreate({
-    where: {
-      userId: req.user.dataValues.id,
-      blogId: req.body.id,
-      blogTitle: req.body.blogTitle,
-      date: req.body.blogDate
-    }
-  }).then(([favorites, created]) => {
-        console.log(`${favorites.id} was ${created ? 'created' : 'found'}!`)
-        res.redirect(`${req.body.id}`)
-  }).catch(err => {
-    console.log(err)
-  })
-});
+
 
 
 router.get('/new', isAdmin, (req, res) => {
@@ -54,6 +37,26 @@ router.post('/new', isAdmin, (req, res) => {
         console.log(err)
     })
 })
+
+
+router.post('/:id', isAdmin, (req, res) => {
+  console.log('hit post route 🎯')
+  console.log(req.body.id)
+  console.log(req.user.dataValues.id)
+  db.favorite.findOrCreate({
+    where: {
+      userId: req.user.dataValues.id,
+      blogId: req.body.id,
+      blogTitle: req.body.blogTitle,
+      date: req.body.blogDate
+    }
+  }).then(([favorites, created]) => {
+        console.log(`${favorites.id} was ${created ? 'created' : 'found'}!`)
+        res.redirect(`${req.body.id}`)
+  }).catch(err => {
+    console.log(err)
+  })
+});
 
 router.get('/edit', isAdmin, (req, res) => {
   db.blog.findAll({
