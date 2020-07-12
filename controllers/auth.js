@@ -9,7 +9,7 @@ const isLoggedIn = require('../middleware/isLoggedIn2');
 
 
 //register get route
-router.get('/register', isLoggedIn, function(req, res) {
+router.get('/register',  function(req, res) {
     res.render('auth/register')
 })
 //register post route
@@ -19,7 +19,7 @@ router.get('/login', function(req, res) {
     res.render('auth/login');
 })
 //login post route
-router.post('/register',  isLoggedIn, (req, res) => {
+router.post('/register',   (req, res) => {
     db.user.findOrCreate({
         where: {
             email: req.body.email

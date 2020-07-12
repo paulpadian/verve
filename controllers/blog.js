@@ -61,6 +61,7 @@ router.post('/:id', isAdmin, (req, res) => {
 
 router.get('/edit', isAdmin, (req, res) => {
   db.blog.findAll({
+    order: ['id']
   }).then(blogs => {
     blogs = blogs.reverse()
     res.render('blog/edit', {blogs})

@@ -9,7 +9,7 @@
       href="/img/favicon.ico">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/yeti/bootstrap.min.css"
     integrity="sha384-chJtTd1EMa6hQI40eyJWF6829eEk4oIe7b3nNtUni7VxA3uHc/uIM/8ppyjrggfV" crossorigin="anonymous">
-  <title>Crossfit Verve</title>
+  <title>Verve</title>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
   </script>
@@ -45,8 +45,19 @@
           <li class="nav-item"> <a class="nav-link" href="/auth/login">Login</a> </li>
           <% } %>
           <% if(currentUser != undefined && currentUser.admin === '1'){ %>
-          <li class="nav-item"> <a class="nav-link" href="/blog/new">New Post</a></li>
-          <li class="nav-item"> <a class="nav-link" href="/auth/register">Add A User</a></li>
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Blog <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li class="nav-item"><a class="nav-link" href="/blog/new">New Blog Post</a></li>
+                <li class="nav-item"><a class="nav-link" href="/blog/edit">Edit a Blog</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">User <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li class="nav-item"><a class="nav-link" href="/auth/register">Add a User</a></li>
+              </ul>
+            </li>
           <% } %>
         </ul>
         <form class="form-inline my-2 my-lg-0">
