@@ -7,19 +7,23 @@ const flash = require('connect-flash')
 const passport = require('../config/ppConfig')
 const isLoggedIn = require('../middleware/isLoggedIn2');
 
+router.get('/register', isLoggedIn, function(req, res) {
+    if(isLoggedIn){
+        res.render('auth/register')
+    } else {
+      res.redirect('/')
+    }
+    
 
-//register get route
-router.get('/register',  function(req, res) {
-    res.render('auth/register')
 })
-//register post route
 
-//login get route
+
 router.get('/login', function(req, res) {
-    res.render('auth/login');
+    res.render('auth/login')
+
 })
-//login post route
-router.post('/register',   (req, res) => {
+
+router.post('/register', isLoggedIn,  (req, res) => {
     db.user.findOrCreate({
         where: {
             email: req.body.email
