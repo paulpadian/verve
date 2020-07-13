@@ -40,7 +40,7 @@ router.post('/new', isAdmin, (req, res) => {
 })
 
 
-router.post('/:id', isAdmin, (req, res) => {
+router.post('/:id', isLoggedIn, (req, res) => {
   console.log('hit post route 🎯')
   console.log(req.body.id)
   console.log(req.user.dataValues.id)
