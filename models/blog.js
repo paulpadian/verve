@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   blog.associate = function(models) {
     models.blog.belongsToMany(models.favorite, {through: 'blogsFavorites'})
+    models.blog.hasMany(models.comment)
   };
   return blog;
 };

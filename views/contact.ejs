@@ -1,15 +1,16 @@
-<h1>Contact us:</h1>
-<p>
+<div class="container">
+  <h1>Contact us:</h1>
+  <p>
     3545 Larimer Street
     Denver, CO 80205
     <br>
     (720) 238-7783
     <br>
-    info@crossfitverve.com 
-</p>
-<hr \>
-<h3>Send us an email to get started:</h3>
-<form action="mailto:test@mock.com" method="post" enctype="text/plain">
+    info@crossfitverve.com
+  </p>
+  <hr \>
+  <h3>Send us an email to get started:</h3>
+  <form action="mailto:test@mock.com" method="post" enctype="text/plain">
     Name:<br>
     <input type="text" name="name"><br>
     E-mail:<br>
@@ -18,33 +19,41 @@
     <input type="text" name="comment" size="30vw"><br><br>
     <input type="submit" value="Send">
     <input type="reset" value="Reset">
-    </form>
-<hr \>
-<h3>Parking is located at the red markers:</h3>
-<div id="map"></div>
-     <script>
-      var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 39.767760, lng: -104.973817},
-          zoom: 18
-        });
-        var marker = new google.maps.Marker({
-        position: {lat: 39.767397, lng: -104.973438},
+  </form>
+  <hr \>
+  <h3>Parking is located at the red markers:</h3>
+  <div id="map"></div>
+  <script>
+    var map;
+
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {
+          lat: 39.767760,
+          lng: -104.973817
+        },
+        zoom: 18
+      });
+      var marker = new google.maps.Marker({
+        position: {
+          lat: 39.767397,
+          lng: -104.973438
+        },
         map: map,
         title: 'Parking'
-        });
-       
-        var marker = new google.maps.Marker({
-        position: {lat: 39.767915 , lng: -104.975291}, 
+      });
+
+      var marker = new google.maps.Marker({
+        position: {
+          lat: 39.767915,
+          lng: -104.975291
+        },
         map: map,
         title: 'Parking'
-        });
+      });
     }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=<%= mapkey %>&callback=initMap" async defer></script>
 
-
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=<%= mapkey %>&callback=initMap"
-    async defer></script>
-
-<hr \>
+  <hr \>
+</div>

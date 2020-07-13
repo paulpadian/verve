@@ -84,12 +84,12 @@ router.post('/delete/:id', isAdmin, (req,res) => {
 })
 
 router.get('/:id', isLoggedIn, (req, res) => {
-    db.blog.findOne({
+      db.blog.findOne({
         where: { id : req.params.id },
+        include: [db.comment]
       })
       .then(blog => {
         if (!blog) throw Error()
-        
         res.render('blog/show', { 
           blog: blog
         })
@@ -98,6 +98,21 @@ router.get('/:id', isLoggedIn, (req, res) => {
         console.log(error)
       })
       
+})
+
+router.post('/comment/:id', (req, res) => {
+  console.log("YOU HIT THIS ROUTE")
+  db.comment.create({
+    name: req.body.name,
+    content: req.body.content,
+    blogId: req.params.id
+  })
+  .then((comment) => {
+    res.redirect(`/blog/${req.params.id}`)
+  })
+  .catch((error) => {
+    res.status(400).render('main/404')
+  })
 })
 
 router.get('/edit/:id', isAdmin, (req, res) => {

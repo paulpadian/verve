@@ -1,6 +1,7 @@
-#navbarColor02{
+#navContainer{
+    font-size: 16px;
     padding-top:15px;
-    padding-bottom: 15px;
+    padding-bottom: 20px;
 }
 
 #cardFlex {
@@ -20,7 +21,7 @@
     width: auto;
     max-width: 100%;
     max-height: 100%;
-    filter: grayscale(100%);
+    filter: grayscale(87%);
     padding: 15px;
 }
 
@@ -40,8 +41,7 @@
 }
 
 .aboutContainer{
-    
-    margin: 0px auto;
+    margin: auto;
     padding: 2vw;
 }
 
@@ -53,4 +53,9 @@
 #map {
     height: 400px; 
     width: 100%; 
+}
+
+.commentContainer{
+    width: 60vw;
+
 }

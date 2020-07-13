@@ -1,16 +1,47 @@
-<h1><%= blog.title %></h1>
+<div class="container">
+  <h1><%= blog.title %></h1>
 
-<p>
-  <strong><%= blog.createdAt %></strong>
-</p>
-
-<p style="white-space: pre-wrap;"><%- blog.content %></p>
-<hr \>
-<form method="POST" action="/blog/:id">
-  <input hidden type="text" name="id" value="<%= blog.id %>">
-  <input hidden type="text" name="blogTitle" value="<%= blog.title %>">
-  <input hidden type="text" name="blogDate" value="<%= blog.createdAt %>">
-  <button class="btn btn-primary" type="submit">Add to Favorite Blogs</button>
-</form>
-<hr \>
-<form method=""
+  <p>
+    <strong><%= blog.createdAt %></strong>
+  </p>
+  <hr />
+  <div class="container">
+    <p style="white-space: pre-wrap;"><%- blog.content %></p>
+    <hr \>
+    <form method="POST" action="/blog/:id">
+      <input hidden type="text" name="id" value="<%= blog.id %>">
+      <input hidden type="text" name="blogTitle" value="<%= blog.title %>">
+      <input hidden type="text" name="blogDate" value="<%= blog.createdAt %>">
+      <button class="btn btn-primary" type="submit">Add to Favorite Blogs</button>
+    </form>
+    <hr />
+    <div class="commentContainer">
+      <h4>Post a Comment:</h4>
+      <form action='/blog/comment/<%= blog.dataValues.id %>' method="POST">
+        Name:
+        <input type="text" class="form-control" id="name" name="name" value="<%- currentUser.name %>" required>
+        Comment:
+        <textarea type="text" class="form-control" id="content" name="content" required></textarea>
+        <br>
+        <input type="submit" class="btn btn-primary" id="submit">
+      </form>
+    </div>
+    <hr />
+    <hr />
+    <h3>Comments:</h3>
+    <% blog.comments.forEach((comment) => { %>
+      <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <strong class="mr-auto"><%- comment.dataValues.name %></strong>
+          <% let date = comment.dataValues.createdAt.toString() %>
+          <% date = date.slice(0,11) %>
+          <small><%- date %></small>
+        </div>
+        <div class="toast-body">
+          <%- comment.dataValues.content %>
+        </div>
+      </div>
+    <% }) %>
+    <hr \>
+  </div>
+</div>

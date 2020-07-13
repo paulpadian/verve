@@ -86,5 +86,32 @@ router.get('/logout', function(req, res) {
     res.redirect('/')
 })
 
+router.get('/delete', isLoggedIn, (req, res) => {
+    db.user.findAll({
+
+    })
+    .then((users) => {
+        console.log(users)
+        res.render('auth/delete', {users})
+    }) 
+    .catch((err) => {
+        console.log(err)
+    })
+})
+
+router.post('/delete/:id', isLoggedIn, (req, res) => {
+    db.user.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(user => {
+        res.redirect("/auth/delete")
+    })
+    .catch(error => {
+        console.log(error)
+    })
+})
+
 //export route
 module.exports = router
