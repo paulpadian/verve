@@ -6,6 +6,8 @@ const flash = require('connect-flash')
 const passport = require('../config/ppConfig')
 const isLoggedIn = require('../middleware/isLoggedIn');
 const isAdmin = require('../middleware/isAdmin');
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 
 
 router.get('/', isLoggedIn,  (req, res) => {
@@ -138,6 +140,23 @@ router.post('/edit/:id', isAdmin, (req, res) => {
     res.redirect(`/blog/edit/${req.params.id}`)
   });
 })
+
+router.get('/search/:searchParam', (req, res) => {
+  db.blog.findAll({
+    where: {
+      content: {
+        [Op.like]: `%${req.params.searchParam}%`
+      }
+    }
+  })
+  .then((result) => {
+    res.send(result)
+  })
+  .catch(error => {
+    console.log(error)
+  })
+})
+
 
 
 
