@@ -22,7 +22,7 @@ Create a functional website that allows a user to maintain the website, post on 
 - CSS
 - Bootstrap
 - Images: unsplash
-- Component library: Bootswatch Yeti
+- Component library:[Bootswatch Yeti](https://bootswatch.com/yeti/)
 - HTML
 - Express 
 - EJS
